@@ -11,8 +11,11 @@ build: .bin-stamp
 test:
 	go test -covermode=atomic -coverpkg=all ./...
 
-run: build
+run-bin: build
 	./bin/color-info
+
+run:
+	go run .
 
 # directories do werid things in make, so we can use a stamp
 .bin-stamp:
