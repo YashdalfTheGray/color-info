@@ -17,6 +17,7 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/", handlers.NewStatusHandler(utils.GetServerID())).Methods("GET")
+	r.HandleFunc("/ping", handlers.PingHandler).Methods("GET")
 
 	loggedRouter := gHandlers.LoggingHandler(os.Stdout, r)
 
