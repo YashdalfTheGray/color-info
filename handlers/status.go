@@ -15,7 +15,7 @@ func NewStatusHandler(serverID string) func(w http.ResponseWriter, req *http.Req
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(http.StatusOK)
 
-		if err := json.NewEncoder(w).Encode(models.Status{
+		if err := json.NewEncoder(w).Encode(models.StatusResponse{
 			Status:   "ok",
 			ServerID: serverID,
 		}); err != nil {
