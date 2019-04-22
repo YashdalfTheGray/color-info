@@ -14,8 +14,10 @@ import (
 )
 
 func main() {
+	serverID := utils.GetServerID()
 	r := mux.NewRouter()
 
+	fmt.Println(fmt.Sprintf("Server ID for this server - %s", serverID))
 	r.HandleFunc("/", handlers.NewStatusHandler(utils.GetServerID())).Methods("GET")
 	r.HandleFunc("/ping", handlers.PingHandler).Methods("GET")
 
