@@ -20,6 +20,7 @@ func main() {
 	fmt.Println(fmt.Sprintf("Server ID for this server - %s", serverID))
 	r.HandleFunc("/", handlers.NewStatusHandler(utils.GetServerID())).Methods("GET")
 	r.HandleFunc("/ping", handlers.PingHandler).Methods("GET")
+	r.HandleFunc("/color", handlers.ColorHandler).Methods("POST")
 
 	loggedRouter := gHandlers.LoggingHandler(os.Stdout, r)
 
