@@ -86,3 +86,25 @@ func TestRGBString(t *testing.T) {
 		})
 	}
 }
+
+func TestNewColorResponse(t *testing.T) {
+	black := models.RGB{0, 0, 0}
+	testCases := []struct {
+		desc string
+		in   models.RGB
+		out  models.ColorResponse
+	}{
+		{
+			desc: "creates a new color response",
+			in:   black,
+			out:  models.ColorResponse{black, black.String()},
+		},
+	}
+	for _, tC := range testCases {
+		t.Run(tC.desc, func(t *testing.T) {
+			if models.NewColorResponse(tC.in) != tC.out {
+				t.Errorf("expected %s but got %s", tC.out.RgbColorString, tC.in.String())
+			}
+		})
+	}
+}
