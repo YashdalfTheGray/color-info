@@ -21,6 +21,7 @@ func ColorHandler(w http.ResponseWriter, req *http.Request) {
 
 	if decErr := jsonDec.Decode(&b); decErr != nil {
 		w.WriteHeader(http.StatusBadRequest)
+		jsonEnc.Encode(models.NewErrorResponse("Missing color input"))
 	} else {
 		if !utils.ValidateColorString(b.Color) {
 			w.WriteHeader(http.StatusBadRequest)
