@@ -9,5 +9,5 @@ import (
 func PingHandler(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "text/plain; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprint(w, "pong")
+	fmt.Fprint(w, "pong\n")
 }

@@ -4,9 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/yashdalfthegray/color-info/utils"
-
 	"github.com/yashdalfthegray/color-info/models"
+	"github.com/yashdalfthegray/color-info/utils"
 )
 
 // ColorHandler responds with an RGB object or an error when you POST
